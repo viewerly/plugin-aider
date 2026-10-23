@@ -1,0 +1,8 @@
+id = "io.viewerly.aider"
+name = "Aider"
+version = "1.0.0"
+viewerly = ">=0.2"
+description = "Run Aider (aider.chat), the AI pair programmer in your terminal, as a Viewerly agent, with a status that says when it is waiting for you."
+
+[contributes]
+agents = ["agents/aider.toml"]

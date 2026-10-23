@@ -1,0 +1,29 @@
+# Aider as a Viewerly agent. Viewerly finds the executable, starts it in the project folder with
+# these arguments, and maps the hook events it reports onto session statuses.
+#
+# Viewerly already lists Aider as a built-in agent that reports only whether it is running, under
+# the id "aider"; a plugin cannot replace a built-in agent, so this one has an id and a name of
+# its own. The id is stored with each session: never change it.
+id = "aider-status"
+name = "Aider (with status)"
+executable = "aider"
+# Where the usual installers put it, most likely first: aider-install and uv tool (and pipx)
+# use ~/.local/bin; Homebrew uses /opt/homebrew/bin on Apple silicon and /usr/local/bin on Intel
+# Macs and Linux. Viewerly also looks in the conventional places and on PATH.
+paths = [
+  "{home}/.local/bin/aider",
+  "/opt/homebrew/bin/aider",
+  "/usr/local/bin/aider",
+  "/home/linuxbrew/.linuxbrew/bin/aider",
+  "{home}/.local/bin/aider.exe",
+]
+install = "Install Aider with `python -m pip install aider-install && aider-install`, or with `uv tool install --python python3.12 aider-chat` or `pipx install aider-chat`. See https://aider.chat/docs/install.html"
+
+# Aider runs --notifications-command (through the shell) whenever it has finished a reply and is
+# waiting for input. Pointing it at the bridge turns that into a Viewerly status. The bridge
+# path is quoted for paths with spaces; double quotes work in sh and in cmd.exe alike.
+arguments = ["--notifications", "--notifications-command", "\"{bridge}\" hook --event waiting"]
+
+# The only event Aider can report.
+[hooks]
+waiting = "waiting_for_input"

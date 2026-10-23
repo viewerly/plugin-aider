@@ -1,0 +1,4 @@
+# Built plugins
+/dist/
+
+.DS_Store

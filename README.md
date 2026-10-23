@@ -75,7 +75,7 @@ Download `io.viewerly.aider-<version>.vplugin` from the
 [releases](https://github.com/viewerly/plugin-aider/releases), then:
 
 - **Settings › Plugins › Install from File…**, or
-- `viewerly plugin install io.viewerly.aider-1.0.0.vplugin`.
+- `viewerly plugin install io.viewerly.aider-0.1.0.vplugin`.
 
 Once it is listed in the directory, **Settings › Plugins › Browse Plugins…** installs it without a
 download. **Aider (with status)** then appears in the New Session menu and in Settings › Agents.
